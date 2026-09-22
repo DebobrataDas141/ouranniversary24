@@ -1,97 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Netflix — The Story of Us</title><link rel="stylesheet" href="../css/home.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix — The Story of Us</title>
+<link rel="stylesheet" href="../css/home.css">
 </head>
+
 <body>
+
 <nav class="navbar" id="navbar">
   <a class="logo" href="home.html" aria-label="Netflix home">NETFLIX</a>
-  <div class="navlinks"><a class="active" href="home.html">Home</a><a href="scrapbook.html">Scrapbook</a><a href="letter.html">Letter</a></div>
-  <div class="navright"><span class="edition">PRIVATE SCREENING</span><button class="profile-switch" id="profile-switch" type="button" aria-label="Switch profile"><span id="nav-avatar">D</span><small id="nav-profile">Debo</small></button></div>
+
+  <div class="navlinks">
+    <a class="active" href="home.html">Home</a>
+    <a href="scrapbook.html">Scrapbook</a>
+    <a href="letter.html">Letter</a>
+  </div>
+
+  <div class="navright">
+    <span class="edition">PRIVATE SCREENING</span>
+
+    <button
+      class="profile-switch"
+      id="profile-switch"
+      type="button"
+      aria-label="Switch profile"
+    >
+      <span id="nav-avatar">D</span>
+      <small id="nav-profile">Debo</small>
+    </button>
+  </div>
 </nav>
 
+
 <main>
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="../assets/story-cover.mp4" type="video/mp4"></video>
+
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+  >
+    <source src="../assets/story-cover.mp4" type="video/mp4">
+  </video>
+
   <div class="hero-overlay"></div>
+
   <div class="hero-content">
-    <p class="kicker">N ORIGINAL • ANNIVERSARY SPECIAL</p>
-    <h1>THE STORY<br><em>OF</em> US</h1>
-    <div class="meta"><span>2025</span><b>•</b><span>2026</span><b>•</b><span>FEATURE</span></div>
-    <p class="hero-desc">One year. Thousands of moments. One story that belongs to us.</p>
-    <div class="actions"><button class="play" type="button" data-content="story"><span>▶</span> Play</button><a class="more" href="scrapbook.html"><span>＋</span> Our Scrapbook</a></div>
+
+    <p class="kicker">
+      N ORIGINAL • ANNIVERSARY SPECIAL
+    </p>
+
+    <h1>
+      THE STORY<br>
+      <em>OF</em> US
+    </h1>
+
+    <div class="meta">
+      <span>2025</span>
+      <b>•</b>
+      <span>2026</span>
+      <b>•</b>
+      <span>FEATURE</span>
+    </div>
+
+    <p class="hero-desc">
+      One year. Thousands of moments. One story that belongs to us.
+    </p>
+
+    <div class="actions">
+
+      <button
+        class="play"
+        type="button"
+        data-content="story"
+      >
+        <span>▶</span>
+        Play
+      </button>
+
+      <a
+        class="more"
+        href="scrapbook.html"
+      >
+        <span>＋</span>
+        Our Scrapbook
+      </a>
+
+    </div>
+
   </div>
+
 </section>
+
+
+<!-- =========================
+     FEATURED
+========================= -->
 
 <section class="content">
-  <div class="section-head"><div><p class="eyebrow">JUST FOR US</p><h2>Featured</h2></div><span class="count">2 titles</span></div>
-  <div class="titles">
-    <article class="title-card" data-content="story" tabindex="0" role="button" aria-label="Play The Story of Us">
-      <div class="thumb"><video muted loop playsinline preload="metadata"><source src="../assets/story-cover.mp4" type="video/mp4"></video><div class="thumb-shade"></div><button class="card-play" type="button" aria-label="Play The Story of Us">▶</button><span class="badge">FEATURED</span></div>
-      <div class="title-info"><h3>The Story of Us</h3><p>Our first year, told like a movie — from the beginning to every moment that followed.</p><div class="tags"><span>Romance</span><span>Real Life</span><span>2025–2026</span></div></div>
-    </article>
-    <article class="title-card" data-content="song" tabindex="0" role="button" aria-label="Open Our Song">
-      <div class="thumb music-thumb"><div class="music-art"><span>♫</span></div><div class="thumb-shade"></div><button class="card-play" type="button" aria-label="Play Our Song">▶</button><span class="badge">MUSIC</span></div>
-      <div class="title-info"><h3>Our Song</h3><p>A dedicated music experience for the song that belongs to this story.</p><div class="tags"><span>Song</span><span>Original</span><span>For Us</span></div></div>
-    </article>
+
+  <div class="section-head">
+
+    <div>
+      <p class="eyebrow">
+        JUST FOR US
+      </p>
+
+      <h2>
+        Featured
+      </h2>
+    </div>
+
+    <span class="count">
+      2 titles
+    </span>
+
   </div>
+
+
+  <div class="titles">
+
+
+    <!-- MAIN STORY -->
+
+    <article
+      class="title-card"
+      data-content="story"
+      tabindex="0"
+      role="button"
+      aria-label="Play The Story of Us"
+    >
+
+      <div class="thumb">
+
+        <video
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source
+            src="../assets/story-cover.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+        <div class="thumb-shade"></div>
+
+        <button
+          class="card-play"
+          type="button"
+          aria-label="Play The Story of Us"
+        >
+          ▶
+        </button>
+
+        <span class="badge">
+          FEATURED
+        </span>
+
+      </div>
+
+
+      <div class="title-info">
+
+        <h3>
+          The Story of Us
+        </h3>
+
+        <p>
+          Our first year, told like a movie — from the beginning to every moment that followed.
+        </p>
+
+        <div class="tags">
+          <span>Romance</span>
+          <span>Real Life</span>
+          <span>2025–2026</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- SONG -->
+
+    <article
+      class="title-card"
+      data-content="song"
+      tabindex="0"
+      role="button"
+      aria-label="Open Our Song"
+    >
+
+      <div class="thumb music-thumb">
+
+        <div class="music-art">
+          <span>♫</span>
+        </div>
+
+        <div class="thumb-shade"></div>
+
+        <button
+          class="card-play"
+          type="button"
+          aria-label="Play Our Song"
+        >
+          ▶
+        </button>
+
+        <span class="badge">
+          MUSIC
+        </span>
+
+      </div>
+
+
+      <div class="title-info">
+
+        <h3>
+          Our Song
+        </h3>
+
+        <p>
+          A dedicated music experience for the song that belongs to this story.
+        </p>
+
+        <div class="tags">
+          <span>Song</span>
+          <span>Original</span>
+          <span>For Us</span>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
 </section>
 
-<section class="content compact"><div class="section-head"><div><p class="eyebrow">MORE TO EXPLORE</p><h2>Inside Our Story</h2></div></div>
-<div class="quick-links"><a href="scrapbook.html"><span>01</span><div><b>Our Scrapbook</b><small>Turn the pages of our memories.</small></div>→</a><a href="letter.html"><span>02</span><div><b>Secret Letter</b><small>A message waiting at the end.</small></div>→</a><a href="ending.html"><span>03</span><div><b>Cinematic Ending</b><small>When the credits finally roll.</small></div>→</a></div></section>
+
+<!-- =========================
+     MORE TO EXPLORE
+========================= -->
+
+<section class="content compact">
+
+  <div class="section-head">
+
+    <div>
+
+      <p class="eyebrow">
+        MORE TO EXPLORE
+      </p>
+
+      <h2>
+        Inside Our Story
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="quick-links">
+
+    <a href="scrapbook.html">
+      <span>01</span>
+
+      <div>
+        <b>Our Scrapbook</b>
+        <small>Turn the pages of our memories.</small>
+      </div>
+
+      →
+    </a>
+
+
+    <a href="letter.html">
+      <span>02</span>
+
+      <div>
+        <b>Secret Letter</b>
+        <small>A message waiting at the end.</small>
+      </div>
+
+      →
+    </a>
+
+
+    <a href="ending.html">
+      <span>03</span>
+
+      <div>
+        <b>Cinematic Ending</b>
+        <small>When the credits finally roll.</small>
+      </div>
+
+      →
+    </a>
+
+  </div>
+
+</section>
+
 </main>
 
-<!-- Cinematic cover sequence -->
-<div class="overlay" id="opening" aria-hidden="true">
+
+<!-- =========================
+     OPENING / COVER VIDEO
+========================= -->
+
+<div
+  class="overlay"
+  id="opening"
+  aria-hidden="true"
+>
+
   <div class="opening-scene">
-    <video id="cover-video" autoplay muted playsinline preload="auto"><source src="../assets/story-cover.mp4" type="video/mp4"></video>
+
+    <video
+      id="cover-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="../assets/story-cover.mp4"
+        type="video/mp4"
+      >
+    </video>
+
     <div class="opening-shade"></div>
-    <button class="close" type="button" data-close aria-label="Close">×</button>
+
+    <button
+      class="close"
+      type="button"
+      data-close
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+
     <div class="opening-copy">
-      <p>AN ORIGINAL STORY</p><h2>THE STORY OF US</h2>
-      <div class="opening-message">Some stories are written.<br>Ours was lived.</div>
-      <div class="opening-actions"><button class="opening-play" id="play-movie-now" type="button">▶ Play movie</button><button class="skip" id="skip-opening" type="button">Skip intro</button></div>
+
+      <p>
+        AN ORIGINAL STORY
+      </p>
+
+      <h2>
+        THE STORY OF US
+      </h2>
+
+      <div class="opening-message">
+        Some stories are written.<br>
+        Ours was lived.
+      </div>
+
+
+      <div class="opening-actions">
+
+        <button
+          class="opening-play"
+          id="play-movie-now"
+          type="button"
+        >
+          ▶ Play movie
+        </button>
+
+        <button
+          class="skip"
+          id="skip-opening"
+          type="button"
+        >
+          Skip intro
+        </button>
+
+      </div>
+
     </div>
+
   </div>
+
 </div>
 
-<!-- Main movie player — hosted externally on Viddler to keep GitHub lightweight. -->
-<div class="overlay player-overlay" id="movie-player" aria-hidden="true">
+
+<!-- =========================
+     MAIN STORY PLAYER
+     Viddler: ID 18578
+========================= -->
+
+<div
+  class="overlay player-overlay"
+  id="movie-player"
+  aria-hidden="true"
+>
+
   <div class="player-box">
-    <div class="player-top"><span>The Story of Us — S1:E1</span><button class="close" type="button" data-close aria-label="Close player">×</button></div>
+
+    <div class="player-top">
+
+      <span>
+        The Story of Us — S1:E1
+      </span>
+
+      <button
+        class="close"
+        type="button"
+        data-close
+        aria-label="Close player"
+      >
+        ×
+      </button>
+
+    </div>
+
+
     <div class="hosted-video-frame">
-      <iframe id="main-video" src="https://viddler.com/embed/5hUoC3/?autoplay=0&player=full&make_responsive=true" title="The Story of Us" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+      <iframe
+        id="main-video"
+        src="https://viddler.com/embed/player?id=18578&color=default"
+        title="The Story of Us — S1:E1"
+        loading="lazy"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
     </div>
-    <div class="missing hidden" id="movie-missing"><div class="missing-icon">▶</div><b>The Story of Us is hosted on Viddler.</b><span>If the player does not appear, <a href="https://viddler.com/5hUoC3" target="_blank" rel="noopener">open the video on Viddler</a>.</span></div>
+
   </div>
+
 </div>
 
-<!-- Dedicated music-video experience — hosted externally on Viddler. -->
-<div class="overlay music-overlay" id="song-player" aria-hidden="true">
+
+<!-- =========================
+     SONG PLAYER
+     Viddler: ID 18576
+========================= -->
+
+<div
+  class="overlay music-overlay"
+  id="song-player"
+  aria-hidden="true"
+>
+
   <div class="music-experience">
-    <button class="close" type="button" data-close aria-label="Close music video">×</button>
+
+    <button
+      class="close"
+      type="button"
+      data-close
+      aria-label="Close music video"
+    >
+      ×
+    </button>
+
+
     <div class="music-video-frame">
-      <iframe id="song-video" src="https://viddler.com/embed/Nqz7zZ/?autoplay=0&player=full&make_responsive=true" title="Our Song" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      <div class="music-video-missing hidden" id="song-missing">
-        <div class="missing-icon">♫</div>
-        <b>Our Song is hosted on Viddler.</b>
-        <span>If the player does not appear, <a href="https://viddler.com/Nqz7zZ" target="_blank" rel="noopener">open the video on Viddler</a>.</span>
-      </div>
+
+      <iframe
+        id="song-video"
+        src="https://viddler.com/embed/player?id=18576&color=default"
+        title="Our Song"
+        loading="lazy"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
     </div>
+
+
     <div class="music-copy">
-      <p class="eyebrow">THE STORY OF US • MUSIC VIDEO</p>
-      <h2>Our Song</h2>
-      <p class="artist">A cinematic edit made for this story</p>
+
+      <p class="eyebrow">
+        THE STORY OF US • MUSIC VIDEO
+      </p>
+
+      <h2>
+        Our Song
+      </h2>
+
+      <p class="artist">
+        A cinematic edit made for this story
+      </p>
+
+
       <div class="music-actions">
-        <button type="button" id="song-toggle" class="song-toggle" aria-label="Play music video">▶</button>
-        <button type="button" id="song-fullscreen" class="round-control" aria-label="Fullscreen music video">⛶</button>
+
+        <button
+          type="button"
+          id="song-fullscreen"
+          class="round-control"
+          aria-label="Fullscreen music video"
+        >
+          ⛶
+        </button>
+
       </div>
-      <p class="song-note">Add your edited song video as <code>assets/song.mp4</code>. The player supports playback, seeking, volume and fullscreen.</p>
+
+
+      <p class="song-note">
+        Use the controls inside the Viddler player to play,
+        seek, adjust volume, and enter fullscreen.
+      </p>
+
     </div>
+
   </div>
+
 </div>
 
-<footer>NETFLIX • A PRIVATE CINEMATIC EXPERIENCE • 2026</footer>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+  NETFLIX • A PRIVATE CINEMATIC EXPERIENCE • 2026
+</footer>
+
+
 <script src="../js/home.js"></script>
-</body></html>
+
+</body>
+</html>
