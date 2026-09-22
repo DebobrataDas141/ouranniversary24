@@ -1,0 +1,5 @@
+Upload your edited song video here using this exact filename:
+
+song.mp4
+
+The website will play it as a full music-video experience.

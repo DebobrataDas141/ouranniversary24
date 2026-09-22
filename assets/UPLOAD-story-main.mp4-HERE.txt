@@ -1,0 +1,2 @@
+Upload your main movie here with this exact filename:
+story-main.mp4

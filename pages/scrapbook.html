@@ -1,0 +1,1011 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Netflix — Our Scrapbook</title>
+
+  <link rel="stylesheet" href="../css/scrapbook.css" />
+
+  <!-- IMAGE + MOBILE FIXES -->
+  <style>
+
+    /* =========================================
+       GLOBAL IMAGE FIX
+    ========================================= */
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .scrapbook-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+    /* =========================================
+       LARGE PHOTO FRAME
+    ========================================= */
+
+    .photo-frame {
+      overflow: hidden;
+    }
+
+    .photo-frame .scrapbook-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+    /* =========================================
+       SMALL PHOTO FRAME
+    ========================================= */
+
+    .small-frame {
+      overflow: hidden;
+    }
+
+    .small-frame .scrapbook-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* =========================================
+       POLAROID PHOTOS
+    ========================================= */
+
+    .polaroid {
+      overflow: hidden;
+    }
+
+    .polaroid-image {
+      width: 100%;
+      height: 220px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+    /* =========================================
+       MEMORY GRID
+    ========================================= */
+
+    .photo-thumb {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+
+    /* =========================================
+       PREVENT LONG CONTENT FROM BREAKING PAGE
+    ========================================= */
+
+    .book-page,
+    .page-front,
+    .page-back,
+    .photo-frame,
+    .polaroid,
+    .photo-grid {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    /* =========================================
+       MOBILE RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .scrapbook-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .book-container {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .book-page {
+        max-width: 100%;
+      }
+
+      .page-front,
+      .page-back {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+
+      /* LARGE IMAGES */
+
+      .large-frame {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .large-frame .scrapbook-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+
+      /* SMALL IMAGE */
+
+      .small-frame {
+        max-width: 45%;
+      }
+
+      .small-frame .scrapbook-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+
+      /* POLAROIDS */
+
+      .polaroid-wrap {
+        max-width: 100%;
+      }
+
+      .polaroid {
+        max-width: 48%;
+      }
+
+      .polaroid-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+
+      /* FOUR IMAGE GRID */
+
+      .photo-grid {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .photo-thumb {
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 1 / 1;
+      }
+
+      .photo-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+
+      /* TEXT SHOULD NOT PUSH THE PAGE OUT */
+
+      .page-title,
+      .page-chapter,
+      .quote-text,
+      .handwritten,
+      .handwritten-small {
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
+    }
+
+
+    /* =========================================
+       VERY SMALL PHONES
+    ========================================= */
+
+    @media (max-width: 480px) {
+
+      .scrapbook-wrapper {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .polaroid-wrap {
+        gap: 8px;
+      }
+
+      .polaroid {
+        max-width: 48%;
+      }
+
+      .polaroid-image {
+        aspect-ratio: 4 / 5;
+      }
+
+      .photo-grid {
+        gap: 6px;
+      }
+
+      .small-frame {
+        max-width: 50%;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================================
+       NAVBAR
+  ========================================= -->
+
+  <nav class="navbar">
+
+    <a href="home.html" class="nav-logo">
+      NETFLIX
+    </a>
+
+    <a href="home.html" class="nav-back">
+      ← Back to Home
+    </a>
+
+  </nav>
+
+
+  <!-- =========================================
+       SCRAPBOOK
+  ========================================= -->
+
+  <div class="scrapbook-wrapper">
+
+    <h1 class="page-heading">
+      Our Scrapbook
+    </h1>
+
+    <p class="page-sub">
+      Click the pages to turn them ❤️
+    </p>
+
+
+    <div class="book-container" id="book-container">
+
+
+      <!-- =====================================
+           COVER
+      ====================================== -->
+
+      <div class="book-page cover-page" id="cover">
+
+        <div class="page-front cover-front">
+
+          <video
+            class="cover-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="../assets/story-cover.mp4"
+              type="video/mp4"
+            >
+          </video>
+
+          <div class="cover-video-shade"></div>
+
+          <div class="cover-emboss"></div>
+
+          <div class="cover-content">
+
+            <div class="cover-heart">
+              ❤️
+            </div>
+
+            <h2 class="cover-title">
+              Our Story
+            </h2>
+
+            <p class="cover-sub">
+              A Love Scrapbook
+            </p>
+
+            <div class="cover-year">
+              2025 — 2026
+            </div>
+
+            <div class="cover-corners">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="page-back page-1-back">
+
+          <div class="inside-cover">
+
+            <p class="handwritten">
+              This book belongs to the two of us ❤️
+            </p>
+
+            <div class="deco-line"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           PAGE 1
+      ====================================== -->
+
+      <div class="book-page" id="page-1">
+
+
+        <!-- FRONT -->
+
+        <div class="page-front">
+
+          <div class="page-number">
+            1
+          </div>
+
+          <div class="page-chapter">
+            Chapter One
+          </div>
+
+          <h3 class="page-title">
+            Our Beginning
+          </h3>
+
+
+          <!-- IMAGE -->
+
+          <div class="photo-frame large-frame">
+
+            <img
+              src="../assets/beginning.png"
+              alt="Our beginning"
+              class="scrapbook-image"
+            />
+
+            <div class="photo-caption">
+              The beginning of everything.
+            </div>
+
+          </div>
+
+
+          <div class="sticky-note yellow">
+
+            <p class="handwritten-small">
+              The day we met changed everything.
+              I didn't know then just how much. ✨
+            </p>
+
+          </div>
+
+
+          <div class="page-deco star">
+            ★
+          </div>
+
+        </div>
+
+
+
+        <!-- BACK -->
+
+        <div class="page-back">
+
+          <div class="page-number">
+            2
+          </div>
+
+          <div class="page-chapter">
+            Chapter One
+          </div>
+
+          <h3 class="page-title">
+            First Conversation
+          </h3>
+
+
+          <div class="memory-lines">
+
+            <div class="memory-line"></div>
+            <div class="memory-line"></div>
+            <div class="memory-line"></div>
+
+          </div>
+
+
+          <div class="quote-block">
+
+            <span class="quote-mark">
+              "
+            </span>
+
+            <p class="quote-text">
+              It started with a hello.
+              It became my whole world.
+            </p>
+
+          </div>
+
+
+          <!-- CHAT IMAGE -->
+
+          <div class="photo-frame small-frame right">
+
+            <img
+              src="../assets/first-chat.jpg"
+              alt="Our first chat"
+              class="scrapbook-image"
+            />
+
+          </div>
+
+
+          <div class="page-deco heart">
+            ♥
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           PAGE 2
+      ====================================== -->
+
+      <div class="book-page" id="page-2">
+
+
+        <!-- FRONT -->
+
+        <div class="page-front">
+
+          <div class="page-number">
+            3
+          </div>
+
+          <div class="page-chapter">
+            Chapter Two
+          </div>
+
+          <h3 class="page-title">
+            First Photo Together
+          </h3>
+
+
+          <div class="polaroid-wrap">
+
+
+            <!-- PHOTO 1 -->
+
+            <div class="polaroid">
+
+              <img
+                src="../assets/first-photo.jpg"
+                alt="Our first photo"
+                class="polaroid-image"
+              />
+
+              <p class="polaroid-caption handwritten-small">
+                Our first photo 🥰
+              </p>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div class="polaroid tilted">
+
+              <img
+                src="../assets/photo-2.jpg"
+                alt="Another moment"
+                class="polaroid-image"
+              />
+
+              <p class="polaroid-caption handwritten-small">
+                One of my favorites
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="washi-tape pink"></div>
+
+        </div>
+
+
+
+        <!-- BACK -->
+
+        <div class="page-back">
+
+          <div class="page-number">
+            4
+          </div>
+
+          <div class="page-chapter">
+            Chapter Two
+          </div>
+
+          <h3 class="page-title">
+            A Thousand Smiles
+          </h3>
+
+
+          <div class="photo-grid">
+
+
+            <div class="photo-thumb">
+
+              <img
+                src="../assets/memory-1.png"
+                alt="Memory 1"
+              />
+
+            </div>
+
+
+            <div class="photo-thumb">
+
+              <img
+                src="../assets/memory-2.jpg"
+                alt="Memory 2"
+              />
+
+            </div>
+
+
+            <div class="photo-thumb">
+
+              <img
+                src="../assets/memory-3.jpg"
+                alt="Memory 3"
+              />
+
+            </div>
+
+
+            <div class="photo-thumb">
+
+              <img
+                src="../assets/memory-4.jpg"
+                alt="Memory 4"
+              />
+
+            </div>
+
+
+          </div>
+
+
+          <div class="sticky-note blue">
+
+            <p class="handwritten-small">
+              Every single one of these makes me smile 🌸
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           PAGE 3
+      ====================================== -->
+
+      <div class="book-page" id="page-3">
+
+
+        <!-- FRONT -->
+
+        <div class="page-front">
+
+          <div class="page-number">
+            5
+          </div>
+
+          <div class="page-chapter">
+            Chapter Three
+          </div>
+
+          <h3 class="page-title">
+            Favorite Memory
+          </h3>
+
+
+          <div class="photo-frame large-frame">
+
+            <img
+              src="../assets/favorite-memory.png"
+              alt="Favorite memory"
+              class="scrapbook-image"
+            />
+
+            <div class="photo-caption">
+              A moment I'll never forget.
+            </div>
+
+          </div>
+
+
+          <div class="memory-text-area">
+
+            <p class="handwritten-small">
+              Write your favorite memory here.
+              Describe it in detail — where you were,
+              what you felt, why this moment meant
+              everything to you.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- BACK -->
+
+        <div class="page-back">
+
+          <div class="page-number">
+            6
+          </div>
+
+          <div class="page-chapter">
+            Chapter Three
+          </div>
+
+          <h3 class="page-title">
+            Things I Remember
+          </h3>
+
+
+          <ul class="memory-list">
+
+            <li>
+              <span class="bullet">❤️</span>
+              The way you laugh at your own jokes
+            </li>
+
+            <li>
+              <span class="bullet">❤️</span>
+              The sound of your voice
+            </li>
+
+            <li>
+              <span class="bullet">❤️</span>
+              How safe I feel beside you
+            </li>
+
+            <li>
+              <span class="bullet">❤️</span>
+              Every tiny detail of you
+            </li>
+
+            <li>
+              <span class="bullet">❤️</span>
+              The day everything changed
+            </li>
+
+          </ul>
+
+
+          <div class="page-deco heart bottom">
+            ♥
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           PAGE 4
+      ====================================== -->
+
+      <div class="book-page" id="page-4">
+
+
+        <!-- FRONT -->
+
+        <div class="page-front">
+
+          <div class="page-number">
+            7
+          </div>
+
+          <div class="page-chapter">
+            Chapter Four
+          </div>
+
+          <h3 class="page-title">
+            Things I Love About You
+          </h3>
+
+
+          <div class="love-list">
+
+            <div class="love-item">
+              <span class="num">01</span>
+              <span>The way your eyes light up</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">02</span>
+              <span>Your kindness to everyone</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">03</span>
+              <span>How you make me feel seen</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">04</span>
+              <span>Your laugh — always your laugh</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">05</span>
+              <span>The strength you carry quietly</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">06</span>
+              <span>The way you love</span>
+            </div>
+
+          </div>
+
+
+          <div class="washi-tape red-tape"></div>
+
+        </div>
+
+
+
+        <!-- BACK -->
+
+        <div class="page-back">
+
+          <div class="page-number">
+            8
+          </div>
+
+          <div class="page-chapter">
+            Chapter Four
+          </div>
+
+          <h3 class="page-title">
+            More I Love About You
+          </h3>
+
+
+          <div class="love-list">
+
+            <div class="love-item">
+              <span class="num">07</span>
+              <span>Your warmth in the cold moments</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">08</span>
+              <span>How you believe in me</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">09</span>
+              <span>Every text that starts with 'hey'</span>
+            </div>
+
+            <div class="love-item">
+              <span class="num">10</span>
+              <span>Simply — everything</span>
+            </div>
+
+          </div>
+
+
+          <div class="sticky-note yellow bottom-note">
+
+            <p class="handwritten-small">
+              This list could go on forever ❤️
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+           PAGE 5
+      ====================================== -->
+
+      <div class="book-page" id="page-5">
+
+
+        <!-- FRONT -->
+
+        <div class="page-front">
+
+          <div class="page-number">
+            9
+          </div>
+
+          <div class="page-chapter">
+            Chapter Five
+          </div>
+
+          <h3 class="page-title">
+            Happy Anniversary
+          </h3>
+
+
+          <div class="anniversary-art">
+
+            <div class="anni-heart">
+              ❤️
+            </div>
+
+            <div class="anni-text handwritten">
+              One Year
+            </div>
+
+            <div class="anni-sub">
+              of choosing each other
+            </div>
+
+          </div>
+
+
+          <div class="quote-block special">
+
+            <p class="quote-text">
+              "365 days. Thousands of smiles.
+              One incredible love."
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- BACK COVER -->
+
+        <div class="page-back back-cover-page">
+
+          <div class="back-cover-inner">
+
+            <div class="bc-heart">
+              ❤️
+            </div>
+
+            <p class="handwritten">
+              To be continued...
+            </p>
+
+            <p class="bc-small">
+              Always &amp; forever yours
+            </p>
+
+            <a
+              href="ending.html"
+              class="btn-ending"
+            >
+              Watch the Ending 🎬
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- =====================================
+         CONTROLS
+    ====================================== -->
+
+    <div class="book-controls">
+
+      <button
+        class="ctrl-btn"
+        id="prev-btn"
+        disabled
+      >
+        ← Previous
+      </button>
+
+      <div
+        class="page-counter"
+        id="page-counter"
+      >
+        Cover
+      </div>
+
+      <button
+        class="ctrl-btn"
+        id="next-btn"
+      >
+        Next →
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="../js/scrapbook.js"></script>
+
+</body>
+</html>
+```

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Netflix — Sign In</title><link rel="stylesheet" href="../css/login.css"></head><body>
+<div class="login-bg"><div class="grain"></div><div class="shade"></div></div>
+<header class="brand">NETFLIX</header>
+<main class="login-wrap"><section class="login-card">
+<h1>Sign In</h1><p class="welcome">Your private screening room is ready.</p>
+<form id="login-form" novalidate>
+<label for="email">Email</label><input id="email" type="email" placeholder="Email" autocomplete="email">
+<label for="password">Password</label><div class="pw"><input id="password" type="password" placeholder="Password" autocomplete="current-password"><button id="toggle-pw" type="button" aria-label="Show password">◉</button></div>
+<div id="error" class="error" aria-live="polite"></div>
+<button id="signin-btn" class="signin" type="submit">Sign In <span>→</span></button>
+</form>
+<p class="private">This is a private cinematic experience.</p>
+</section></main>
+<script src="../js/login.js"></script></body></html>

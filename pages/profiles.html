@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Netflix — Who's Watching?</title>
+<link rel="stylesheet" href="../css/profiles.css">
+</head>
+<body>
+<div class="profile-bg"><div class="profile-vignette"></div></div>
+<main class="profiles-container">
+  <div class="brand">NETFLIX</div>
+  <h1>Who's watching?</h1>
+  <p class="profiles-sub">Choose a profile to continue</p>
+  <div class="profiles-grid">
+    <button class="profile-card" type="button" data-profile="debo" aria-label="Continue as Debo">
+      <span class="profile-avatar avatar-debo">D</span>
+      <span class="profile-name">Debo</span>
+      <span class="profile-badge">Creator</span>
+    </button>
+    <button class="profile-card" type="button" data-profile="her" aria-label="Continue as Her">
+      <span class="profile-avatar avatar-her">♥</span>
+      <span class="profile-name">Her</span>
+      <span class="profile-badge">Our Story</span>
+    </button>
+  </div>
+  <button class="manage-btn" id="manage-profile" type="button">Manage Profiles</button>
+</main>
+<div class="profile-toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../js/profiles.js"></script>
+</body>
+</html>

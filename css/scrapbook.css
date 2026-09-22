@@ -1,0 +1,619 @@
+/* ===== DeboFlix Scrapbook Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@200;300;400;500;600&family=Caveat:wght@400;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #c0392b;
+  --dark: #0a0a0a;
+  --paper: #f5f0e8;
+  --paper2: #ede8dc;
+  --ink: #2c2c2c;
+  --ink2: #5a4a3a;
+  --muted: #999;
+  --shadow: rgba(0,0,0,0.5);
+}
+
+html, body {
+  min-height: 100vh;
+  background: #0a0a0a;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 60px;
+  background: rgba(10,10,10,0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-decoration: none;
+}
+.red { color: var(--red); text-shadow: 0 0 12px rgba(192,57,43,0.6); }
+.nav-back {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: #fff; }
+
+/* ---- Wrapper ---- */
+.scrapbook-wrapper {
+  padding: 100px 20px 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(80,5,5,0.3) 0%, transparent 60%),
+    #0a0a0a;
+}
+
+.page-heading {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.page-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+
+/* ============================
+   BOOK
+   ============================ */
+.book-container {
+  position: relative;
+  width: min(720px, 95vw);
+  aspect-ratio: 1.45/1;
+  perspective: 2000px;
+  perspective-origin: center center;
+}
+
+/* Each book-page is a 3D flipping leaf */
+.book-page {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  cursor: pointer;
+}
+
+.book-page.flipped {
+  transform: rotateY(-180deg);
+}
+
+.page-front,
+.page-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 2px 12px 12px 2px;
+  overflow: hidden;
+}
+
+.page-back {
+  transform: rotateY(180deg);
+  border-radius: 12px 2px 2px 12px;
+}
+
+/* Paper texture base */
+.page-front,
+.page-back {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 40px;
+  box-shadow:
+    inset -2px 0 8px rgba(0,0,0,0.15),
+    4px 0 20px rgba(0,0,0,0.4);
+  color: var(--ink);
+}
+
+/* Left pages (backs after flip) have slightly different binding shadow */
+.page-back {
+  box-shadow:
+    inset 2px 0 8px rgba(0,0,0,0.15),
+    -4px 0 20px rgba(0,0,0,0.4);
+}
+
+/* ---- Cover ---- */
+.cover-front {
+  background: linear-gradient(135deg, #1a0505 0%, #2d0808 40%, #1a0505 100%) !important;
+  background-image: none !important;
+  border: 1px solid rgba(192,57,43,0.2);
+  position: relative;
+}
+.cover-emboss {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(192,57,43,0.15);
+  border-radius: 8px;
+  pointer-events: none;
+}
+.cover-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.cover-heart { font-size: 48px; filter: drop-shadow(0 0 16px rgba(192,57,43,0.6)); }
+.cover-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  color: #f0e8d8;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.cover-sub {
+  font-size: 13px;
+  color: rgba(240,232,216,0.6);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.cover-year {
+  font-size: 12px;
+  color: rgba(192,57,43,0.7);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+}
+.cover-corners span {
+  position: absolute;
+  width: 16px; height: 16px;
+  border-color: rgba(192,57,43,0.3);
+  border-style: solid;
+}
+.cover-corners span:nth-child(1) { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+.cover-corners span:nth-child(2) { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+.cover-corners span:nth-child(3) { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+.cover-corners span:nth-child(4) { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+/* ---- Inside cover ---- */
+.inside-cover {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.deco-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(192,57,43,0.3);
+  border-radius: 2px;
+}
+
+/* ---- Page elements ---- */
+.page-number {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  font-size: 12px;
+  color: rgba(60,40,30,0.35);
+  font-family: 'Cinzel', serif;
+}
+.page-back .page-number { right: auto; left: 32px; }
+
+.page-chapter {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(192,57,43,0.6);
+  margin-bottom: 8px;
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Photo Frames ---- */
+.photo-frame {
+  border: 2px solid rgba(60,40,30,0.2);
+  background: rgba(60,40,30,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 0 0 4px rgba(60,40,30,0.04);
+}
+.large-frame { width: 100%; aspect-ratio: 16/9; margin-bottom: 14px; }
+.small-frame { width: 45%; aspect-ratio: 1/1; float: right; margin-left: 16px; }
+
+.photo-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(60,40,30,0.06);
+  color: rgba(60,40,30,0.4);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  min-height: 120px;
+}
+.photo-placeholder.small { font-size: 10px; }
+.ph-icon { font-size: 28px; }
+.photo-caption {
+  font-size: 11px;
+  font-family: 'Caveat', cursive;
+  color: rgba(60,40,30,0.5);
+  text-align: center;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* ---- Polaroids ---- */
+.polaroid-wrap {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.polaroid {
+  background: #fff;
+  padding: 8px 8px 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  flex: 1;
+  min-width: 130px;
+}
+.polaroid.tilted { transform: rotate(2.5deg); }
+.polaroid-ph {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(200,190,180,0.2);
+  color: rgba(60,40,30,0.4);
+  font-size: 11px;
+}
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 13px;
+  color: var(--ink2);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ---- Sticky Notes ---- */
+.sticky-note {
+  padding: 14px 16px;
+  border-radius: 2px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
+  transform: rotate(-1.5deg);
+  margin-top: 12px;
+  position: relative;
+}
+.sticky-note.yellow { background: #fef08a; }
+.sticky-note.blue   { background: #bfdbfe; }
+.sticky-note.bottom { position: absolute; bottom: 40px; right: 32px; width: 40%; }
+
+/* ---- Washi Tape ---- */
+.washi-tape {
+  height: 24px;
+  position: absolute;
+  left: -10px; right: -10px;
+  top: 70px;
+  opacity: 0.55;
+}
+.washi-tape.pink { background: repeating-linear-gradient(90deg, rgba(255,130,160,0.5) 0px, rgba(255,100,130,0.4) 8px, rgba(255,180,200,0.5) 16px); }
+.washi-tape.red-tape { background: repeating-linear-gradient(90deg, rgba(192,57,43,0.35) 0px, rgba(150,40,20,0.3) 8px, rgba(192,57,43,0.35) 16px); top: 68px; }
+
+/* ---- Quote Block ---- */
+.quote-block {
+  background: rgba(192,57,43,0.06);
+  border-left: 3px solid rgba(192,57,43,0.4);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 6px 6px 0;
+  position: relative;
+}
+.quote-block.special {
+  background: rgba(192,57,43,0.08);
+  border-color: rgba(192,57,43,0.6);
+  margin-top: 24px;
+}
+.quote-mark {
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+  color: rgba(192,57,43,0.3);
+  line-height: 0;
+  vertical-align: -20px;
+  margin-right: 4px;
+}
+.quote-text {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+}
+
+/* ---- Photo Grid ---- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.photo-thumb {
+  aspect-ratio: 1/1;
+  background: rgba(60,40,30,0.08);
+  border: 1px solid rgba(60,40,30,0.12);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph-icon-sm { font-size: 20px; opacity: 0.4; }
+
+/* ---- Memory Lines ---- */
+.memory-lines { margin-bottom: 16px; }
+.memory-line {
+  height: 1px;
+  background: rgba(60,40,30,0.15);
+  margin-bottom: 18px;
+  border-radius: 2px;
+}
+
+/* ---- Memory List ---- */
+.memory-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.memory-list li {
+  font-size: 14px;
+  color: var(--ink2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+}
+.bullet { font-size: 14px; flex-shrink: 0; }
+
+/* ---- Love List ---- */
+.love-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.love-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: rgba(192,57,43,0.04);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink);
+  border-left: 2px solid rgba(192,57,43,0.2);
+  transition: background 0.2s;
+}
+.love-item:hover { background: rgba(192,57,43,0.08); }
+.love-item .num {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(192,57,43,0.7);
+  min-width: 24px;
+}
+
+/* ---- Anniversary Page ---- */
+.anniversary-art {
+  text-align: center;
+  padding: 24px 0;
+}
+.anni-heart { font-size: 60px; margin-bottom: 12px; filter: drop-shadow(0 0 16px rgba(192,57,43,0.4)); }
+.anni-text {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  color: var(--red);
+  font-weight: 600;
+}
+.anni-sub { font-size: 13px; color: var(--ink2); letter-spacing: 0.12em; margin-top: 4px; }
+
+/* ---- Back Cover ---- */
+.back-cover-page {
+  background: linear-gradient(135deg, #1a0505 0%, #2d0808 40%, #1a0505 100%) !important;
+  background-image: none !important;
+  border: 1px solid rgba(192,57,43,0.2);
+  color: #f0e8d8 !important;
+}
+.back-cover-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.bc-heart { font-size: 40px; }
+.bc-small { font-size: 12px; color: rgba(240,232,216,0.4); letter-spacing: 0.15em; }
+.btn-ending {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #c0392b, #96281b);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+  transition: all 0.3s ease;
+}
+.btn-ending:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(192,57,43,0.5);
+}
+
+/* ---- Deco elements ---- */
+.page-deco {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.12;
+  color: var(--red);
+}
+.page-deco.star { bottom: 40px; left: 32px; }
+.page-deco.heart { top: 48px; right: 28px; font-size: 24px; }
+.page-deco.bottom { bottom: 48px; right: 32px; }
+
+/* ---- Handwritten fonts ---- */
+.handwritten { font-family: 'Caveat', cursive; font-size: 18px; color: var(--ink2); }
+.handwritten-small { font-family: 'Caveat', cursive; font-size: 15px; color: var(--ink); line-height: 1.5; }
+.back-cover-inner .handwritten { color: rgba(240,232,216,0.7); font-size: 22px; }
+
+.memory-text-area {
+  background: rgba(255,255,255,0.4);
+  border: 1px dashed rgba(60,40,30,0.2);
+  border-radius: 4px;
+  padding: 14px;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  color: rgba(60,40,30,0.45);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* ============================
+   BOOK CONTROLS
+   ============================ */
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+.ctrl-btn {
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.ctrl-btn:hover:not(:disabled) {
+  background: rgba(192,57,43,0.2);
+  border-color: rgba(192,57,43,0.4);
+}
+.ctrl-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.page-counter {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .book-container { aspect-ratio: unset; min-height: 440px; }
+  .page-front, .page-back { padding: 24px 20px; }
+  .page-title { font-size: 16px; }
+  .navbar { padding: 0 20px; }
+  .scrapbook-wrapper { padding-top: 80px; }
+  .polaroid-wrap { flex-direction: column; }
+  .polaroid { min-width: unset; }
+}
+
+body { opacity: 0; animation: fadeIn 0.6s ease forwards 0.1s; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* Cinematic reference video on The Story of Us cover */
+.cover-front{position:relative;overflow:hidden;background:#050505!important}
+.cover-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.cover-video-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.62)),radial-gradient(circle,transparent 15%,rgba(0,0,0,.38) 100%)}
+.cover-front .cover-emboss,.cover-front .cover-content{position:relative;z-index:2}
+.cover-front .cover-content{color:#fff;text-shadow:0 2px 15px #000}
+
+@media (max-width: 480px) {
+  .navbar { height:56px; padding:0 14px; }
+  .nav-logo { font-size:17px; letter-spacing:.12em; }
+  .nav-back { font-size:11px; }
+  .scrapbook-wrapper { padding:76px 10px 35px; }
+  .page-heading { font-size:clamp(23px,8vw,30px); }
+  .page-sub { font-size:10px; line-height:1.5; margin:0 20px 28px; }
+  .book-container { width:100%; min-height:0; aspect-ratio:1/1.15; }
+  .page-front, .page-back { padding:18px 14px; border-radius:2px 8px 8px 2px; }
+  .page-back { border-radius:8px 2px 2px 8px; }
+  .page-title { font-size:14px; margin-bottom:12px; }
+  .page-chapter { font-size:8px; letter-spacing:.18em; }
+  .page-number { bottom:12px; right:16px; }
+  .page-back .page-number { left:16px; }
+  .photo-caption, .polaroid-caption { font-size:10px; }
+  .photo-placeholder { min-height:80px; font-size:9px; }
+  .ph-icon { font-size:22px; }
+  .polaroid-wrap { gap:9px; margin-bottom:10px; }
+  .polaroid { padding:5px 5px 18px; }
+  .love-list { gap:8px; }
+  .love-item { font-size:10px; }
+  .book-controls { width:100%; gap:8px; padding:0 6px; }
+  .ctrl-btn { min-height:44px; padding:9px 11px; font-size:10px; }
+  .page-counter { min-width:65px; font-size:10px; }
+  .cover-heart { font-size:36px; }
+  .cover-title { font-size:clamp(20px,7vw,28px); }
+  .cover-sub { font-size:9px; letter-spacing:.16em; }
+  .cover-year { font-size:9px; }
+  .cover-emboss { inset:8px; }
+  .cover-corners span { width:11px; height:11px; }
+  .cover-corners span:nth-child(1) { top:12px; left:12px; }
+  .cover-corners span:nth-child(2) { top:12px; right:12px; }
+  .cover-corners span:nth-child(3) { bottom:12px; left:12px; }
+  .cover-corners span:nth-child(4) { bottom:12px; right:12px; }
+  .cover-video { object-position:center; }
+}

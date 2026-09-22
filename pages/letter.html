@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix — A Letter For You</title>
+  <link rel="stylesheet" href="../css/letter.css" />
+</head>
+<body>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="home.html" class="nav-logo">NETFLIX</a>
+    <a href="home.html" class="nav-back">← Back</a>
+  </nav>
+
+  <!-- ===== ENVELOPE STATE ===== -->
+  <div class="letter-container" id="letter-container">
+
+    <!-- Envelope -->
+    <div class="envelope-wrap" id="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <!-- Envelope body -->
+        <div class="env-body">
+          <div class="env-bottom-left"></div>
+          <div class="env-bottom-right"></div>
+          <div class="env-center"></div>
+        </div>
+        <!-- Envelope flap (top) -->
+        <div class="env-flap" id="env-flap"></div>
+        <!-- Heart seal -->
+        <div class="env-seal" id="env-seal">❤️</div>
+      </div>
+
+      <div class="envelope-meta">
+        <div class="env-to">To: <em>My Favorite Person</em></div>
+        <div class="env-from">From: Someone who loves you ❤️</div>
+      </div>
+
+      <button class="open-btn" id="open-btn">
+        <span>Open Letter</span>
+        <span class="open-arrow">↓</span>
+      </button>
+
+      <p class="env-hint">Click to open your anniversary letter</p>
+    </div>
+
+    <!-- ===== LETTER STATE ===== -->
+    <div class="letter-wrap" id="letter-wrap">
+      <div class="letter-paper" id="letter-paper">
+        <div class="letter-header">
+          <div class="letter-date">On Our First Anniversary</div>
+          <div class="letter-seal-small">❤️</div>
+        </div>
+        <div class="letter-greeting">My dearest,</div>
+        <div class="letter-body" id="letter-body"></div>
+        <div class="letter-signature" id="letter-signature"></div>
+      </div>
+
+      <div class="letter-actions">
+        <a href="ending.html" class="btn-ending">🎬 Watch Our Ending</a>
+        <button class="btn-close-letter" id="close-letter-btn">Close Letter</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/letter.js"></script>
+</body>
+</html>

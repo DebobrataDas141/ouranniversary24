@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix — The Ending</title>
+  <link rel="stylesheet" href="../css/ending.css" />
+</head>
+<body>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Black intro overlay -->
+  <div class="fade-overlay" id="fade-overlay"></div>
+
+  <!-- Main cinematic stage -->
+  <div class="ending-stage" id="ending-stage">
+
+    <!-- Cinematic letterbox bars -->
+    <div class="letterbox top"></div>
+    <div class="letterbox bottom"></div>
+
+    <!-- Content -->
+    <div class="ending-center" id="ending-center">
+      <div class="line-wrap" id="line-1-wrap">
+        <p class="ending-line" id="line-1"></p>
+      </div>
+      <div class="line-wrap" id="line-2-wrap">
+        <p class="ending-line" id="line-2"></p>
+      </div>
+      <div class="line-wrap" id="line-3-wrap">
+        <p class="ending-line highlight" id="line-3"></p>
+      </div>
+
+      <!-- Heart reveal after lines -->
+      <div class="heart-reveal" id="heart-reveal">
+        <div class="big-heart">❤️</div>
+        <div class="heart-glow"></div>
+      </div>
+
+      <!-- Final card -->
+      <div class="final-card" id="final-card">
+        <div class="final-logo">NETFLIX</div>
+        <div class="final-title">Original Stories.<br>Real Love.</div>
+        <div class="final-year">Year One · 2025–2026</div>
+        <div class="final-actions">
+          <a href="home.html" class="btn-replay">↺ Replay Story</a>
+          <a href="home.html" class="btn-home">Go Home</a>
+        </div>
+        <p class="final-credit">Made with ❤️ for the most special person</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/ending.js"></script>
+</body>
+</html>
